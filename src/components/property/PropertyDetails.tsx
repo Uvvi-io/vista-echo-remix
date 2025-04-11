@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { Bed, Bath, MapPin, Ruler, History, Coffee, Building, Tree } from 'lucide-react';
+import { Bed, Bath, MapPin, Ruler, History, Coffee, Building, Trees } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -95,7 +94,7 @@ const PropertyDetails = () => {
             </div>
           </div>
           <div className="flex items-start py-2">
-            <Tree size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
+            <Trees size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-estate-gray-dark">{t('property.location')}</h4>
               <p className="text-estate-gray-dark">{t('property.locationDetails')}</p>
