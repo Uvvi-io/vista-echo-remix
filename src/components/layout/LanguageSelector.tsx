@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Languages } from 'lucide-react';
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -16,9 +15,8 @@ const LanguageSelector = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full">
-          <Languages className="h-5 w-5" />
-          <span className="sr-only">Toggle language</span>
+        <Button variant="outline" size="sm" className="rounded-md font-medium">
+          {language === 'en' ? 'ENG' : 'ESP'}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
