@@ -1,12 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import ImageCarousel from '@/components/property/ImageCarousel';
+import PropertyDetails from '@/components/property/PropertyDetails';
+import PropertyMap from '@/components/property/PropertyMap';
+import ContactForm from '@/components/property/ContactForm';
+import MortgageCalculator from '@/components/property/MortgageCalculator';
+import SimilarProperties from '@/components/property/SimilarProperties';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen bg-estate-gray-light">
+      <Navbar />
+      
+      <main className="flex-grow mb-8">
+        <div className="container mx-auto px-4 py-6">
+          <ImageCarousel />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+            {/* Left Column (2/3 width on large screens) */}
+            <div className="lg:col-span-2">
+              <PropertyDetails />
+              <SimilarProperties />
+            </div>
+            
+            {/* Right Column (1/3 width on large screens) */}
+            <div className="space-y-6">
+              <ContactForm />
+              <PropertyMap />
+              <MortgageCalculator />
+            </div>
+          </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
