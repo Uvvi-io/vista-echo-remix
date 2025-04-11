@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define our available languages
@@ -114,6 +113,12 @@ const translations: TranslationDict = {
   'property.locationDetails': {
     en: 'Near Metro, restaurants, shopping',
     es: 'Cerca del Metro, restaurantes, tiendas',
+  },
+  
+  // 3D Tour
+  'property.3dTour': {
+    en: '3D Virtual Tour',
+    es: 'Recorrido Virtual 3D',
   },
   
   // Contact form
