@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bed, Bath, Grid, MapPin, Ruler, History } from 'lucide-react';
+import { Bed, Bath, MapPin, Ruler, History, Coffee, Building, Tree } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -74,28 +74,28 @@ const PropertyDetails = () => {
         <h3 className="text-xl font-bold text-estate-gray-dark mb-3">{t('property.homeFeatures')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
           <div className="flex items-start py-2">
-            <Grid size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
+            <Coffee size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-estate-gray-dark">{t('property.interiorFeatures')}</h4>
               <p className="text-estate-gray-dark">{t('property.interiorDetails')}</p>
             </div>
           </div>
           <div className="flex items-start py-2">
-            <Grid size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
+            <Building size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-estate-gray-dark">{t('property.kitchen')}</h4>
               <p className="text-estate-gray-dark">{t('property.kitchenDetails')}</p>
             </div>
           </div>
           <div className="flex items-start py-2">
-            <Grid size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
+            <Building size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-estate-gray-dark">{t('property.buildingAmenities')}</h4>
               <p className="text-estate-gray-dark">{t('property.buildingDetails')}</p>
             </div>
           </div>
           <div className="flex items-start py-2">
-            <Grid size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
+            <Tree size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
             <div>
               <h4 className="font-semibold text-estate-gray-dark">{t('property.location')}</h4>
               <p className="text-estate-gray-dark">{t('property.locationDetails')}</p>

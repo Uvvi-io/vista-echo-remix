@@ -21,7 +21,7 @@ const PropertyTour = () => {
       
       <Button 
         onClick={() => setShowTour(true)}
-        className="w-full py-6 bg-red-600 hover:bg-red-700 text-white font-medium text-lg"
+        className="w-full py-6 bg-estate-primary hover:bg-estate-primary/90 text-white font-medium text-lg"
       >
         <Video className="mr-2 h-5 w-5" />
         Matterport Virtual Tour
