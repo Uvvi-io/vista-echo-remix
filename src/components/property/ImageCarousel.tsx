@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Image, Heart } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 // Sample images for the property
@@ -14,7 +14,6 @@ const propertyImages = [
 
 const ImageCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev === propertyImages.length - 1 ? 0 : prev + 1));
@@ -66,7 +65,7 @@ const ImageCarousel = () => {
         ))}
       </div>
 
-      {/* Image count and favorite button */}
+      {/* Image count button - removed favorite button */}
       <div className="absolute top-4 flex justify-between w-full px-4">
         <Button
           variant="outline"
@@ -75,17 +74,6 @@ const ImageCarousel = () => {
         >
           <Image className="mr-2" size={16} />
           {currentImage + 1}/{propertyImages.length}
-        </Button>
-        
-        <Button
-          variant="outline"
-          size="icon"
-          className={`rounded-full ${
-            isFavorite ? 'bg-estate-accent text-white' : 'bg-white/80 text-estate-gray-dark hover:bg-white'
-          }`}
-          onClick={() => setIsFavorite(!isFavorite)}
-        >
-          <Heart size={20} fill={isFavorite ? 'currentColor' : 'none'} />
         </Button>
       </div>
     </div>
