@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { Box, Video3d } from 'lucide-react';
+import { Box, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const PropertyTour = () => {
@@ -23,7 +23,7 @@ const PropertyTour = () => {
           onClick={() => setShowTour(true)}
           className="w-full py-6 bg-gradient-to-r from-[#1A1F2C] to-[#6E59A5] hover:from-[#1A1F2C] hover:to-[#9b87f5] text-white font-medium text-lg"
         >
-          <Video3d className="mr-2 h-5 w-5" />
+          <Video className="mr-2 h-5 w-5" />
           {t('property.viewMatterportTour')}
         </Button>
       ) : (
