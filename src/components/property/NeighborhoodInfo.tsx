@@ -11,7 +11,7 @@ const NeighborhoodInfo = () => {
   return (
     <Card className="w-full mb-6">
       <CardContent className="p-6">
-        <h3 className="text-lg font-bold text-estate-gray-dark mb-4">Neighborhood Information</h3>
+        <h3 className="text-lg font-bold text-estate-gray-dark mb-4">{t('neighborhood.title')}</h3>
         
         {/* Walkability Scores */}
         <div className="grid grid-cols-3 gap-4 mb-6">
@@ -20,7 +20,7 @@ const NeighborhoodInfo = () => {
               <FootprintsIcon size={24} className="text-estate-primary" />
             </div>
             <span className="text-2xl font-bold text-estate-gray-dark">92</span>
-            <span className="text-sm text-estate-gray-dark text-center">Walker's Paradise</span>
+            <span className="text-sm text-estate-gray-dark text-center">{t('neighborhood.walkers')}</span>
           </div>
           
           <div className="flex flex-col items-center">
@@ -28,7 +28,7 @@ const NeighborhoodInfo = () => {
               <Bike size={24} className="text-estate-primary" />
             </div>
             <span className="text-2xl font-bold text-estate-gray-dark">86</span>
-            <span className="text-sm text-estate-gray-dark text-center">Very Bikeable</span>
+            <span className="text-sm text-estate-gray-dark text-center">{t('neighborhood.bikeable')}</span>
           </div>
           
           <div className="flex flex-col items-center">
@@ -36,14 +36,14 @@ const NeighborhoodInfo = () => {
               <Bus size={24} className="text-estate-primary" />
             </div>
             <span className="text-2xl font-bold text-estate-gray-dark">78</span>
-            <span className="text-sm text-estate-gray-dark text-center">Excellent Transit</span>
+            <span className="text-sm text-estate-gray-dark text-center">{t('neighborhood.transit')}</span>
           </div>
         </div>
         
         <Separator className="mb-6" />
         
         {/* Nearby Amenities */}
-        <h4 className="font-semibold text-estate-gray-dark mb-4">Nearby Amenities</h4>
+        <h4 className="font-semibold text-estate-gray-dark mb-4">{t('neighborhood.amenities')}</h4>
         
         <div className="space-y-4">
           <div className="flex items-start">
@@ -51,8 +51,8 @@ const NeighborhoodInfo = () => {
               <ShoppingBag size={18} className="text-estate-primary" />
             </div>
             <div>
-              <p className="font-medium text-estate-gray-dark">Nearest Supermarket</p>
-              <p className="text-estate-gray-dark">Whole Foods Market (0.3 miles)</p>
+              <p className="font-medium text-estate-gray-dark">{t('neighborhood.supermarket')}</p>
+              <p className="text-estate-gray-dark">{t('neighborhood.supermarketName')}</p>
             </div>
           </div>
           
@@ -61,8 +61,8 @@ const NeighborhoodInfo = () => {
               <Fuel size={18} className="text-estate-primary" />
             </div>
             <div>
-              <p className="font-medium text-estate-gray-dark">Nearest Gas Station</p>
-              <p className="text-estate-gray-dark">Shell Gas Station (0.8 miles)</p>
+              <p className="font-medium text-estate-gray-dark">{t('neighborhood.gasStation')}</p>
+              <p className="text-estate-gray-dark">{t('neighborhood.gasStationName')}</p>
             </div>
           </div>
           
@@ -71,8 +71,8 @@ const NeighborhoodInfo = () => {
               <Landmark size={18} className="text-estate-primary" />
             </div>
             <div>
-              <p className="font-medium text-estate-gray-dark">Key Attraction</p>
-              <p className="text-estate-gray-dark">Dupont Circle (0.5 miles)</p>
+              <p className="font-medium text-estate-gray-dark">{t('neighborhood.attraction')}</p>
+              <p className="text-estate-gray-dark">{t('neighborhood.attractionName')}</p>
             </div>
           </div>
         </div>
