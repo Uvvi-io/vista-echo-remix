@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { Cube } from 'lucide-react';
+import { Box } from 'lucide-react';
 
 const PropertyTour = () => {
   const { t } = useLanguage();
@@ -10,7 +10,7 @@ const PropertyTour = () => {
   return (
     <div className="mt-4 mb-6">
       <div className="flex items-center gap-2 mb-3">
-        <Cube size={20} className="text-estate-primary" />
+        <Box size={20} className="text-estate-primary" />
         <h3 className="text-xl font-bold text-estate-gray-dark">
           {t('property.3dTour')}
         </h3>
