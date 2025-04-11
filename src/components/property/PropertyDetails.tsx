@@ -5,6 +5,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import PropertyTour from './PropertyTour';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { ChevronDown } from 'lucide-react';
 
 const PropertyDetails = () => {
   const { t } = useLanguage();
@@ -96,38 +99,103 @@ const PropertyDetails = () => {
         </div>
       </div>
 
-      {/* Property Features */}
+      {/* Property Features - Tabbed & Collapsible */}
       <div className="mb-6">
         <h3 className="text-xl font-bold text-estate-gray-dark mb-3">{t('property.homeFeatures')}</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-          <div className="flex items-start py-2">
-            <Coffee size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-estate-gray-dark">{t('property.interiorFeatures')}</h4>
+        
+        {/* Tabs for larger screens */}
+        <div className="hidden md:block">
+          <Tabs defaultValue="interior" className="w-full">
+            <TabsList className="grid grid-cols-4 mb-4">
+              <TabsTrigger value="interior" className="text-estate-gray-dark">
+                <Coffee size={18} className="mr-2 text-estate-primary" />
+                {t('property.interiorFeatures')}
+              </TabsTrigger>
+              <TabsTrigger value="kitchen" className="text-estate-gray-dark">
+                <Building size={18} className="mr-2 text-estate-primary" />
+                {t('property.kitchen')}
+              </TabsTrigger>
+              <TabsTrigger value="building" className="text-estate-gray-dark">
+                <Building size={18} className="mr-2 text-estate-primary" />
+                {t('property.buildingAmenities')}
+              </TabsTrigger>
+              <TabsTrigger value="location" className="text-estate-gray-dark">
+                <Trees size={18} className="mr-2 text-estate-primary" />
+                {t('property.location')}
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="interior" className="p-4 bg-white rounded-md border">
               <p className="text-estate-gray-dark">{t('property.interiorDetails')}</p>
-            </div>
-          </div>
-          <div className="flex items-start py-2">
-            <Building size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-estate-gray-dark">{t('property.kitchen')}</h4>
+            </TabsContent>
+            
+            <TabsContent value="kitchen" className="p-4 bg-white rounded-md border">
               <p className="text-estate-gray-dark">{t('property.kitchenDetails')}</p>
-            </div>
-          </div>
-          <div className="flex items-start py-2">
-            <Building size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-estate-gray-dark">{t('property.buildingAmenities')}</h4>
+            </TabsContent>
+            
+            <TabsContent value="building" className="p-4 bg-white rounded-md border">
               <p className="text-estate-gray-dark">{t('property.buildingDetails')}</p>
-            </div>
-          </div>
-          <div className="flex items-start py-2">
-            <Trees size={20} className="text-estate-primary mt-0.5 mr-2 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-estate-gray-dark">{t('property.location')}</h4>
+            </TabsContent>
+            
+            <TabsContent value="location" className="p-4 bg-white rounded-md border">
               <p className="text-estate-gray-dark">{t('property.locationDetails')}</p>
-            </div>
-          </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+        
+        {/* Collapsible sections for mobile */}
+        <div className="md:hidden space-y-3">
+          <Collapsible className="border rounded-md overflow-hidden">
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-3 bg-estate-gray-light hover:bg-estate-gray-light/80 transition-colors">
+              <div className="flex items-center">
+                <Coffee size={18} className="mr-2 text-estate-primary" />
+                <span className="font-semibold text-estate-gray-dark">{t('property.interiorFeatures')}</span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-estate-gray-dark transition-transform duration-200" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="p-3 bg-white">
+              <p className="text-estate-gray-dark">{t('property.interiorDetails')}</p>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <Collapsible className="border rounded-md overflow-hidden">
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-3 bg-estate-gray-light hover:bg-estate-gray-light/80 transition-colors">
+              <div className="flex items-center">
+                <Building size={18} className="mr-2 text-estate-primary" />
+                <span className="font-semibold text-estate-gray-dark">{t('property.kitchen')}</span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-estate-gray-dark transition-transform duration-200" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="p-3 bg-white">
+              <p className="text-estate-gray-dark">{t('property.kitchenDetails')}</p>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <Collapsible className="border rounded-md overflow-hidden">
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-3 bg-estate-gray-light hover:bg-estate-gray-light/80 transition-colors">
+              <div className="flex items-center">
+                <Building size={18} className="mr-2 text-estate-primary" />
+                <span className="font-semibold text-estate-gray-dark">{t('property.buildingAmenities')}</span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-estate-gray-dark transition-transform duration-200" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="p-3 bg-white">
+              <p className="text-estate-gray-dark">{t('property.buildingDetails')}</p>
+            </CollapsibleContent>
+          </Collapsible>
+          
+          <Collapsible className="border rounded-md overflow-hidden">
+            <CollapsibleTrigger className="flex items-center justify-between w-full p-3 bg-estate-gray-light hover:bg-estate-gray-light/80 transition-colors">
+              <div className="flex items-center">
+                <Trees size={18} className="mr-2 text-estate-primary" />
+                <span className="font-semibold text-estate-gray-dark">{t('property.location')}</span>
+              </div>
+              <ChevronDown className="h-5 w-5 text-estate-gray-dark transition-transform duration-200" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="p-3 bg-white">
+              <p className="text-estate-gray-dark">{t('property.locationDetails')}</p>
+            </CollapsibleContent>
+          </Collapsible>
         </div>
       </div>
     </div>
