@@ -95,4 +95,18 @@ export const propertyTranslations: TranslationDict = {
     en: '3D Virtual Tour',
     es: 'Recorrido Virtual 3D',
   },
+  
+  // Map related translations
+  'property.viewOnMap': {
+    en: 'View on Map',
+    es: 'Ver en el Mapa',
+  },
+  'property.getDirections': {
+    en: 'Get Directions',
+    es: 'Obtener Direcciones',
+  },
+  'property.mapLoading': {
+    en: 'Loading Map...',
+    es: 'Cargando Mapa...',
+  },
 };

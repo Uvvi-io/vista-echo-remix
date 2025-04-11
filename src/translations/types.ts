@@ -9,3 +9,17 @@ export type TranslationDict = {
     es: string;
   };
 };
+
+// Google Maps related types
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
+export interface MapOptions {
+  center: Coordinates;
+  zoom: number;
+  mapTypeControl?: boolean;
+  streetViewControl?: boolean;
+  fullscreenControl?: boolean;
+}

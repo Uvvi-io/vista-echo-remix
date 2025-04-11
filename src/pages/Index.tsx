@@ -25,8 +25,8 @@ const Index = () => {
             {/* Right Column (1/3 width on large screens) */}
             <div className="space-y-6">
               <ContactForm />
-              <NeighborhoodInfo />
               <PropertyMap />
+              <NeighborhoodInfo />
             </div>
           </div>
         </div>
