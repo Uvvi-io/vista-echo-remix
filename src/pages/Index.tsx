@@ -2,7 +2,6 @@
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import ImageCarousel from '@/components/property/ImageCarousel';
-import PropertyTour from '@/components/property/PropertyTour';
 import PropertyDetails from '@/components/property/PropertyDetails';
 import PropertyMap from '@/components/property/PropertyMap';
 import ContactForm from '@/components/property/ContactForm';
@@ -15,7 +14,6 @@ const Index = () => {
       <main className="flex-grow mb-8">
         <div className="container mx-auto px-4 py-6">
           <ImageCarousel />
-          <PropertyTour />
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
             {/* Left Column (2/3 width on large screens) */}

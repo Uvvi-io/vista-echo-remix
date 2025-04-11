@@ -4,6 +4,7 @@ import { Bed, Bath, Grid, MapPin, Ruler, History } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import PropertyTour from './PropertyTour';
 
 const PropertyDetails = () => {
   const { t } = useLanguage();
@@ -45,8 +46,13 @@ const PropertyDetails = () => {
             </div>
           </div>
 
+          {/* Matterport 3D Tour */}
+          <div className="mt-6 mb-6">
+            <PropertyTour />
+          </div>
+
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button className="flex-1 bg-estate-accent hover:bg-estate-accent/90 text-white">{t('property.scheduleTour')}</Button>
             <Button variant="outline" className="flex-1 border-estate-primary text-estate-primary hover:bg-estate-primary/10">{t('property.contactAgent')}</Button>
           </div>
