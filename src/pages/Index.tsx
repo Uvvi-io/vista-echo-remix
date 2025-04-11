@@ -1,13 +1,10 @@
 
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
 import ImageCarousel from '@/components/property/ImageCarousel';
 import PropertyDetails from '@/components/property/PropertyDetails';
 import PropertyMap from '@/components/property/PropertyMap';
 import ContactForm from '@/components/property/ContactForm';
-import MortgageCalculator from '@/components/property/MortgageCalculator';
-import SimilarProperties from '@/components/property/SimilarProperties';
 
 const Index = () => {
   return (
@@ -22,20 +19,16 @@ const Index = () => {
             {/* Left Column (2/3 width on large screens) */}
             <div className="lg:col-span-2">
               <PropertyDetails />
-              <SimilarProperties />
             </div>
             
             {/* Right Column (1/3 width on large screens) */}
             <div className="space-y-6">
               <ContactForm />
               <PropertyMap />
-              <MortgageCalculator />
             </div>
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 };
