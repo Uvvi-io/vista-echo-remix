@@ -14,4 +14,20 @@ export const navbarTranslations: TranslationDict = {
     en: 'Spanish',
     es: 'Español',
   },
+  'nav.propertyDetails': {
+    en: 'Property Details',
+    es: 'Detalles de Propiedad',
+  },
+  'nav.contactAgent': {
+    en: 'Contact Agent',
+    es: 'Contactar Agente',
+  },
+  'nav.location': {
+    en: 'Location',
+    es: 'Ubicación',
+  },
+  'nav.neighborhood': {
+    en: 'Neighborhood',
+    es: 'Vecindario',
+  },
 };

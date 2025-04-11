@@ -19,14 +19,22 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
             {/* Left Column (2/3 width on large screens) */}
             <div className="lg:col-span-2">
-              <PropertyDetails />
+              <div id="property-details">
+                <PropertyDetails />
+              </div>
             </div>
             
             {/* Right Column (1/3 width on large screens) */}
             <div className="space-y-6">
-              <ContactForm />
-              <PropertyMap />
-              <NeighborhoodInfo />
+              <div id="contact-agent">
+                <ContactForm />
+              </div>
+              <div id="property-map">
+                <PropertyMap />
+              </div>
+              <div id="neighborhood-info">
+                <NeighborhoodInfo />
+              </div>
             </div>
           </div>
         </div>
