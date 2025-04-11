@@ -1,0 +1,69 @@
+
+import React from 'react';
+import { Bed, Bath, Ruler, History } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+import PropertyTour from './PropertyTour';
+
+interface PropertyKeyDetailsProps {
+  onScheduleTour: () => void;
+  onContactAgent: () => void;
+}
+
+const PropertyKeyDetails = ({ onScheduleTour, onContactAgent }: PropertyKeyDetailsProps) => {
+  const { t } = useLanguage();
+
+  return (
+    <Card className="mb-6">
+      <CardContent className="p-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="flex flex-col items-center p-3 border rounded-lg">
+            <Bed size={24} className="text-estate-primary mb-1" />
+            <span className="text-sm text-estate-gray-dark">{t('property.beds')}</span>
+            <span className="font-bold text-lg text-estate-gray-dark">2</span>
+          </div>
+          <div className="flex flex-col items-center p-3 border rounded-lg">
+            <Bath size={24} className="text-estate-primary mb-1" />
+            <span className="text-sm text-estate-gray-dark">{t('property.baths')}</span>
+            <span className="font-bold text-lg text-estate-gray-dark">2</span>
+          </div>
+          <div className="flex flex-col items-center p-3 border rounded-lg">
+            <Ruler size={24} className="text-estate-primary mb-1" />
+            <span className="text-sm text-estate-gray-dark">{t('property.sqft')}</span>
+            <span className="font-bold text-lg text-estate-gray-dark">1,200</span>
+          </div>
+          <div className="flex flex-col items-center p-3 border rounded-lg">
+            <History size={24} className="text-estate-primary mb-1" />
+            <span className="text-sm text-estate-gray-dark">{t('property.yearBuilt')}</span>
+            <span className="font-bold text-lg text-estate-gray-dark">2005</span>
+          </div>
+        </div>
+
+        {/* Matterport 3D Tour Button */}
+        <div className="mt-6">
+          <PropertyTour />
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 mt-4">
+          <Button 
+            className="flex-1 bg-estate-accent hover:bg-estate-accent/90 text-white"
+            onClick={onScheduleTour}
+          >
+            {t('property.scheduleTour')}
+          </Button>
+          <Button 
+            variant="outline" 
+            className="flex-1 border-estate-primary text-estate-primary hover:bg-estate-primary/10"
+            onClick={onContactAgent}
+          >
+            {t('property.contactAgent')}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default PropertyKeyDetails;
