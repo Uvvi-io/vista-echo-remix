@@ -3,7 +3,7 @@ import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Walk, Bike, Bus, Store, GasStation, Landmark } from 'lucide-react';
+import { FootprintsIcon, Bike, Bus, ShoppingBag, Fuel, Landmark } from 'lucide-react';
 
 const NeighborhoodInfo = () => {
   const { t } = useLanguage();
@@ -17,7 +17,7 @@ const NeighborhoodInfo = () => {
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div className="flex flex-col items-center">
             <div className="bg-estate-primary/10 rounded-full p-3 mb-2">
-              <Walk size={24} className="text-estate-primary" />
+              <FootprintsIcon size={24} className="text-estate-primary" />
             </div>
             <span className="text-2xl font-bold text-estate-gray-dark">92</span>
             <span className="text-sm text-estate-gray-dark text-center">Walker's Paradise</span>
@@ -48,7 +48,7 @@ const NeighborhoodInfo = () => {
         <div className="space-y-4">
           <div className="flex items-start">
             <div className="p-2 bg-estate-primary/10 rounded-full mr-3 mt-1">
-              <Store size={18} className="text-estate-primary" />
+              <ShoppingBag size={18} className="text-estate-primary" />
             </div>
             <div>
               <p className="font-medium text-estate-gray-dark">Nearest Supermarket</p>
@@ -58,7 +58,7 @@ const NeighborhoodInfo = () => {
           
           <div className="flex items-start">
             <div className="p-2 bg-estate-primary/10 rounded-full mr-3 mt-1">
-              <GasStation size={18} className="text-estate-primary" />
+              <Fuel size={18} className="text-estate-primary" />
             </div>
             <div>
               <p className="font-medium text-estate-gray-dark">Nearest Gas Station</p>
