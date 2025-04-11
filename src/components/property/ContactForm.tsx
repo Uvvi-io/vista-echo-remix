@@ -10,6 +10,21 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const ContactForm = () => {
   const { t } = useLanguage();
 
+  // WhatsApp deeplink functions
+  const openWhatsAppCall = () => {
+    // Placeholder number - to be replaced with actual agent number
+    const phoneNumber = "1234567890";
+    const message = encodeURIComponent(`Hello, I'm interested in the property at ${t('property.address')}`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
+  const openWhatsAppSchedule = () => {
+    // Placeholder number - to be replaced with actual agent number
+    const phoneNumber = "1234567890";
+    const message = encodeURIComponent(`Hello, I would like to schedule a tour for the property at ${t('property.address')}`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
   return (
     <Card className="mb-6">
       <CardHeader className="bg-estate-primary text-white rounded-t-lg">
@@ -39,13 +54,24 @@ const ContactForm = () => {
         </div>
 
         <div className="flex flex-col gap-3 mb-6">
-          <Button className="w-full bg-estate-accent hover:bg-estate-accent/90 text-white">
+          <Button 
+            className="w-full bg-estate-accent hover:bg-estate-accent/90 text-white"
+            onClick={openWhatsAppCall}
+          >
             <Phone size={16} className="mr-2" /> {t('contact.callAgent')}
           </Button>
-          <Button className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" variant="outline">
+          <Button 
+            className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" 
+            variant="outline"
+            onClick={() => window.open(`mailto:agent@estatevista.com?subject=Property Inquiry: ${t('property.address')}`, '_blank')}
+          >
             <Mail size={16} className="mr-2" /> {t('contact.emailAgent')}
           </Button>
-          <Button className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" variant="outline">
+          <Button 
+            className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" 
+            variant="outline"
+            onClick={openWhatsAppSchedule}
+          >
             <Calendar size={16} className="mr-2" /> {t('contact.scheduleTour')}
           </Button>
         </div>

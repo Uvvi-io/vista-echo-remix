@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Bed, Bath, MapPin, Ruler, History, Coffee, Building, Trees } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,6 +8,22 @@ import PropertyTour from './PropertyTour';
 
 const PropertyDetails = () => {
   const { t } = useLanguage();
+
+  // WhatsApp deeplink for scheduling a tour
+  const openWhatsAppSchedule = () => {
+    // Placeholder number - to be replaced with actual agent number
+    const phoneNumber = "1234567890";
+    const message = encodeURIComponent(`Hello, I would like to schedule a tour for the property at ${t('property.address')}`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
+  // WhatsApp deeplink for contacting the agent
+  const openWhatsAppContact = () => {
+    // Placeholder number - to be replaced with actual agent number
+    const phoneNumber = "1234567890";
+    const message = encodeURIComponent(`Hello, I'm interested in the property at ${t('property.address')}`);
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
 
   return (
     <div className="mt-6">
@@ -51,9 +68,20 @@ const PropertyDetails = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button className="flex-1 bg-estate-accent hover:bg-estate-accent/90 text-white">{t('property.scheduleTour')}</Button>
-            <Button variant="outline" className="flex-1 border-estate-primary text-estate-primary hover:bg-estate-primary/10">{t('property.contactAgent')}</Button>
+          <div className="flex flex-col sm:flex-row gap-3 mt-4">
+            <Button 
+              className="flex-1 bg-estate-accent hover:bg-estate-accent/90 text-white"
+              onClick={openWhatsAppSchedule}
+            >
+              {t('property.scheduleTour')}
+            </Button>
+            <Button 
+              variant="outline" 
+              className="flex-1 border-estate-primary text-estate-primary hover:bg-estate-primary/10"
+              onClick={openWhatsAppContact}
+            >
+              {t('property.contactAgent')}
+            </Button>
           </div>
         </CardContent>
       </Card>
