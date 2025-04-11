@@ -46,8 +46,8 @@ const PropertyDetails = () => {
             </div>
           </div>
 
-          {/* Matterport 3D Tour */}
-          <div className="mt-6 mb-6">
+          {/* Matterport 3D Tour Button - Positioned here as requested */}
+          <div className="mt-6">
             <PropertyTour />
           </div>
 
