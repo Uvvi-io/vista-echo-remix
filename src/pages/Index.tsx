@@ -5,6 +5,7 @@ import ImageCarousel from '@/components/property/ImageCarousel';
 import PropertyDetails from '@/components/property/PropertyDetails';
 import PropertyMap from '@/components/property/PropertyMap';
 import ContactForm from '@/components/property/ContactForm';
+import NeighborhoodInfo from '@/components/property/NeighborhoodInfo';
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
             {/* Right Column (1/3 width on large screens) */}
             <div className="space-y-6">
               <ContactForm />
+              <NeighborhoodInfo />
               <PropertyMap />
             </div>
           </div>
