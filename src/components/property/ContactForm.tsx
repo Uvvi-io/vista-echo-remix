@@ -5,12 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactForm = () => {
+  const { t } = useLanguage();
+
   return (
     <Card className="mb-6">
       <CardHeader className="bg-estate-primary text-white rounded-t-lg">
-        <CardTitle className="text-xl font-bold">Contact Agent</CardTitle>
+        <CardTitle className="text-xl font-bold">{t('contact.title')}</CardTitle>
       </CardHeader>
       <CardContent className="p-6">
         <div className="flex items-center mb-6">
@@ -21,7 +24,7 @@ const ContactForm = () => {
           />
           <div>
             <h4 className="font-bold text-estate-gray-dark">Sarah Johnson</h4>
-            <p className="text-estate-gray-dark text-sm">Lead Real Estate Agent</p>
+            <p className="text-estate-gray-dark text-sm">{t('contact.agentTitle')}</p>
             <div className="flex items-center mt-1">
               <div className="flex items-center text-yellow-500">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -37,28 +40,28 @@ const ContactForm = () => {
 
         <div className="flex flex-col gap-3 mb-6">
           <Button className="w-full bg-estate-accent hover:bg-estate-accent/90 text-white">
-            <Phone size={16} className="mr-2" /> Call Agent
+            <Phone size={16} className="mr-2" /> {t('contact.callAgent')}
           </Button>
           <Button className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" variant="outline">
-            <Mail size={16} className="mr-2" /> Email Agent
+            <Mail size={16} className="mr-2" /> {t('contact.emailAgent')}
           </Button>
           <Button className="w-full border-estate-primary text-estate-primary hover:bg-estate-primary/10" variant="outline">
-            <Calendar size={16} className="mr-2" /> Schedule Tour
+            <Calendar size={16} className="mr-2" /> {t('contact.scheduleTour')}
           </Button>
         </div>
 
         <div className="space-y-4">
-          <h4 className="font-bold text-estate-gray-dark">Send a Message</h4>
+          <h4 className="font-bold text-estate-gray-dark">{t('contact.sendMessage')}</h4>
           <div className="space-y-3">
-            <Input placeholder="Your Name" />
-            <Input placeholder="Email Address" type="email" />
-            <Input placeholder="Phone Number" type="tel" />
+            <Input placeholder={t('contact.yourName')} />
+            <Input placeholder={t('contact.emailAddress')} type="email" />
+            <Input placeholder={t('contact.phoneNumber')} type="tel" />
             <Textarea 
-              placeholder="I'm interested in this property. Please contact me with more information."
+              placeholder={t('contact.messageLabel')}
               rows={4}
             />
             <Button className="w-full bg-estate-primary hover:bg-estate-primary/90 text-white">
-              Send Message
+              {t('contact.sendButton')}
             </Button>
           </div>
         </div>
