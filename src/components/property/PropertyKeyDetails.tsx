@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Bed, Bath, Ruler, History } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,7 @@ interface PropertyKeyDetailsProps {
 
 const PropertyKeyDetails = ({ onScheduleTour, onContactAgent }: PropertyKeyDetailsProps) => {
   const { t } = useLanguage();
+  const [showTour, setShowTour] = useState(false);
 
   return (
     <Card className="mb-6">
@@ -42,7 +43,13 @@ const PropertyKeyDetails = ({ onScheduleTour, onContactAgent }: PropertyKeyDetai
 
         {/* Matterport 3D Tour Button */}
         <div className="mt-6">
-          <PropertyTour />
+          <Button 
+            className="w-full bg-estate-primary hover:bg-estate-primary/90 text-white"
+            onClick={() => setShowTour(true)}
+          >
+            {t('property.viewTour')}
+          </Button>
+          {showTour && <PropertyTour onClose={() => setShowTour(false)} />}
         </div>
 
         {/* CTA Buttons */}
