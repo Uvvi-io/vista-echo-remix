@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Image } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Image, X, Box } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import PropertyTour from './PropertyTour';
 
 // Sample images for the property
 const propertyImages = [
@@ -14,6 +15,8 @@ const propertyImages = [
 
 const ImageCarousel = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [showFullscreen, setShowFullscreen] = useState(false);
+  const [showTour, setShowTour] = useState(false);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev === propertyImages.length - 1 ? 0 : prev + 1));
@@ -24,59 +27,98 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-lg">
-      {/* Main Image */}
-      <img
-        src={propertyImages[currentImage]}
-        alt={`Property image ${currentImage + 1}`}
-        className="w-full h-full object-cover transition-transform duration-500"
-      />
+    <>
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-lg">
+        {/* Main Image */}
+        <img
+          src={propertyImages[currentImage]}
+          alt={`Property image ${currentImage + 1}`}
+          className="w-full h-full object-cover transition-transform duration-500"
+        />
 
-      {/* Navigation Buttons */}
-      <div className="absolute inset-0 flex items-center justify-between p-4">
-        <Button
-          onClick={prevImage}
-          variant="outline"
-          size="icon"
-          className="rounded-full bg-white/80 text-estate-gray-dark hover:bg-white"
-        >
-          <ChevronLeft size={24} />
-        </Button>
-        <Button
-          onClick={nextImage}
-          variant="outline"
-          size="icon"
-          className="rounded-full bg-white/80 text-estate-gray-dark hover:bg-white"
-        >
-          <ChevronRight size={24} />
-        </Button>
+        {/* Navigation Buttons */}
+        <div className="absolute inset-0 flex items-center justify-between p-4">
+          <Button
+            onClick={prevImage}
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 text-estate-gray-dark hover:bg-white"
+          >
+            <ChevronLeft size={24} />
+          </Button>
+          <Button
+            onClick={nextImage}
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 text-estate-gray-dark hover:bg-white"
+          >
+            <ChevronRight size={24} />
+          </Button>
+        </div>
+
+        {/* Thumbnails */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {propertyImages.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full ${
+                currentImage === index ? 'bg-white' : 'bg-white/50'
+              }`}
+              onClick={() => setCurrentImage(index)}
+            />
+          ))}
+        </div>
+
+        {/* Top buttons container */}
+        <div className="absolute top-4 flex justify-between w-full px-4">
+          {/* Image count button */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-white/80 hover:bg-white text-estate-gray-dark rounded-md"
+            onClick={() => setShowFullscreen(true)}
+          >
+            <Image className="mr-2" size={16} />
+            {currentImage + 1}/{propertyImages.length}
+          </Button>
+
+          {/* 3D Tour button */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="bg-white/80 hover:bg-white text-estate-gray-dark rounded-md"
+            onClick={() => setShowTour(true)}
+          >
+            <Box className="mr-2" size={16} />
+            3D Tour
+          </Button>
+        </div>
       </div>
 
-      {/* Thumbnails */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {propertyImages.map((_, index) => (
-          <button
-            key={index}
-            className={`w-2 h-2 rounded-full ${
-              currentImage === index ? 'bg-white' : 'bg-white/50'
-            }`}
-            onClick={() => setCurrentImage(index)}
-          />
-        ))}
-      </div>
+      {/* Fullscreen Image Dialog */}
+      <Dialog open={showFullscreen} onOpenChange={setShowFullscreen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-0">
+          <div className="relative">
+            <img
+              src={propertyImages[currentImage]}
+              alt={`Property image ${currentImage + 1}`}
+              className="w-full h-full object-contain"
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute top-2 right-2 rounded-full bg-white/80 hover:bg-white"
+              onClick={() => setShowFullscreen(false)}
+            >
+              <X size={24} />
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
-      {/* Image count button - removed favorite button */}
-      <div className="absolute top-4 flex justify-between w-full px-4">
-        <Button
-          variant="outline"
-          size="sm"
-          className="bg-white/80 hover:bg-white text-estate-gray-dark rounded-md"
-        >
-          <Image className="mr-2" size={16} />
-          {currentImage + 1}/{propertyImages.length}
-        </Button>
-      </div>
-    </div>
+      {/* 3D Tour Dialog */}
+      {showTour && <PropertyTour onClose={() => setShowTour(false)} />}
+    </>
   );
 };
 
